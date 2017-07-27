@@ -1,0 +1,8 @@
+t_test:
+    script:
+        - export PYTHONPATH='/usr/local/Anaconda2' && git diff master --name-only -- '*.py' | xargs -r flake8
+        - export PATH="/usr/local/Anaconda2/bin:$PATH" && export PYTHONPATH='/usr/local/Anaconda2' && git diff master --name-only -- '*.py' | xargs -r flake8
+    stage: test
+    except:
+        - tags
+
